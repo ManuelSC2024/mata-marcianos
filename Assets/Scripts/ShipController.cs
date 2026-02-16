@@ -108,6 +108,9 @@ public class ShipController : MonoBehaviour
     {
         // Desactivar comportamiento
         active = false;
+
+        GameManager.GetInstance().LoseLife();
+
         // Instanciar la animación de la explosión
         Instantiate(explosion, transform.position, Quaternion.identity);
         // Resetear posición de la nave

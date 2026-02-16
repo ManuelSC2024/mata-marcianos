@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float speed;
 
     [SerializeField] GameObject explosionPrefab; // Prefab de la explosión
+[SerializeField] int points = 100;
 
 
     // Altura a la que se destruirá la nave enemiga
@@ -35,6 +36,8 @@ public class EnemyController : MonoBehaviour
 
     void DestroyEnemy()
     {
+        GameManager.GetInstance().AddScore(points);
+
         // Instanciar la animación de la explosión en la posición de la nave enemiga
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         // Destruir la nave enemiga
